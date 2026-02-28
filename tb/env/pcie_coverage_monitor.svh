@@ -11,7 +11,13 @@ class pcie_coverage_monitor extends uvm_component;
   uvm_tlm_analysis_fifo #(lpif_seq_item) lpif_fifo;
   uvm_tlm_analysis_fifo #(pipe_seq_item) pipe_fifo;
 
-  covergroup pcie_coverage_monitor_cov;  
+  // NEW: Covergroup for features coverage
+  covergroup pcie_coverage_monitor_cov @(posedge vif.clk);
+    // NEW: Coverpoints for LPIF operation
+    cp_lpif_op : coverpoint lpif_seq_item_h.lpif_operation {
+      bins link_reset = {lpif_agent_pkg::LINK_RESET}; //RESET
+      bins link_up    = {lpif_agent_pkg::LINK_UP};  //Link-up
+    }
   endgroup : pcie_coverage_monitor_cov
 
   // Standard UVM Methods:
@@ -48,7 +54,10 @@ endfunction:connect_phase
 function void pcie_coverage_monitor::report_phase(uvm_phase phase);
 endfunction:report_phase
 
+// NEW: Implement write_lpif_received to sample coverage
 function void pcie_coverage_monitor::write_lpif_received(lpif_seq_item lpif_seq_item_h);
+  this.lpif_seq_item_h = lpif_seq_item_h;  // NEW: Save handle for covergroup
+  pcie_coverage_monitor_cov.sample();      // NEW: Sample coverage
 endfunction:write_lpif_received
 
 function void pcie_coverage_monitor::write_pipe_received(pipe_seq_item pipe_seq_item_h);
