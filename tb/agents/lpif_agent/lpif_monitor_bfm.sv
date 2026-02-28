@@ -41,6 +41,7 @@ interface lpif_monitor_bfm #(
 
   lpif_monitor proxy;
   logic [3:0]  pl_state_sts_previous;
+  logic [2:0]  pl_speed_mode_previous;
 
   /************************************** Detect Link Up **************************************/
   initial begin
@@ -48,6 +49,19 @@ interface lpif_monitor_bfm #(
       @(pl_state_sts)begin
         if(pl_state_sts_previous == LINK_RESET && pl_state_sts == ACTIVE) proxy.notify_link_up_received();
         pl_state_sts_previous = pl_state_sts;
+      end
+    end
+  end
+
+  /************************************** Detect Speed Mode Change **************************************/
+  initial begin
+    pl_speed_mode_previous = pl_speed_mode;
+    forever begin
+      @(pl_speed_mode) begin
+        if (pl_speed_mode !== pl_speed_mode_previous) begin
+          proxy.notify_speed_change_received(lpif_speed_mode_t'(pl_speed_mode));
+          pl_speed_mode_previous = pl_speed_mode;
+        end
       end
     end
   end

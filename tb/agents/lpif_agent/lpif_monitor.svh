@@ -57,6 +57,9 @@ class lpif_monitor extends uvm_monitor;
   `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(dllp, DLLP_TRANSFER, dllp_t, dllp)
   `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(tlp, TLP_TRANSFER, tlp_t, tlp)
   
+  // Speed mode change notification
+  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(speed_change, SEND_DATA, lpif_speed_mode_t, speed_mode)
+  
   //------------------------------------------
   //  Standard UVM Methods
   //------------------------------------------

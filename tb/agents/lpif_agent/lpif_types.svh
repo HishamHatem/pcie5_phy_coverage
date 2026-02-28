@@ -19,6 +19,15 @@ typedef enum bit [3:0]{
 	RETRAIN = 4'b1011
 } lpif_state_t;
 
+// Speed mode encoding (matches RTL pl_speedmode)
+typedef enum bit [2:0] {
+  LPIF_GEN1 = 3'b000,
+  LPIF_GEN2 = 3'b001,
+  LPIF_GEN3 = 3'b010,
+  LPIF_GEN4 = 3'b011,
+  LPIF_GEN5 = 3'b100
+} lpif_speed_mode_t;
+
 typedef enum {
   WAITING_FOR_START,
   RECEIVING_TLP,
@@ -29,6 +38,7 @@ typedef struct{
   lpif_operation_t lpif_operation;
   tlp_t tlp;
   dllp_t dllp;
+  lpif_speed_mode_t speed_mode;
 }lpif_seq_item_s;
 
 // Typedef of parameterized LPIF interfaces

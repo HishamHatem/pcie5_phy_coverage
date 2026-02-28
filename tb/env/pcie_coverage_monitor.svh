@@ -11,18 +11,50 @@ class pcie_coverage_monitor extends uvm_component;
   uvm_tlm_analysis_fifo #(lpif_seq_item) lpif_fifo;
   uvm_tlm_analysis_fifo #(pipe_seq_item) pipe_fifo;
 
-  // NEW: Covergroup for features coverage
-  covergroup pcie_coverage_monitor_cov @(posedge vif.clk);
-    // NEW: Coverpoints for LPIF operation
+  //=============================================================================================
+  // Environment-Level Cross-Interface Coverage
+  // Covers system-level scenarios spanning LPIF and PIPE interfaces
+  //=============================================================================================
+  covergroup pcie_env_cov;
+    
+    //========== LPIF Operation Coverage ==========
     cp_lpif_op : coverpoint lpif_seq_item_h.lpif_operation {
-      bins link_reset = {lpif_agent_pkg::LINK_RESET}; //RESET
-      bins link_up    = {lpif_agent_pkg::LINK_UP};  //Link-up
-      //Data transmit features (TX path)
+      bins link_reset    = {lpif_agent_pkg::LINK_RESET};
+      bins link_up       = {lpif_agent_pkg::LINK_UP};
       bins tlp_transfer  = {lpif_agent_pkg::TLP_TRANSFER};
       bins dllp_transfer = {lpif_agent_pkg::DLLP_TRANSFER};
+      bins enter_retrain = {lpif_agent_pkg::ENTER_RETRAIN};
       bins send_data     = {lpif_agent_pkg::SEND_DATA};
     }
-  endgroup : pcie_coverage_monitor_cov
+
+    //========== LPIF Speed Mode Coverage ==========
+    cp_lpif_speed : coverpoint lpif_seq_item_h.speed_mode {
+      bins gen1 = {lpif_agent_pkg::LPIF_GEN1};
+      bins gen2 = {lpif_agent_pkg::LPIF_GEN2};
+      bins gen3 = {lpif_agent_pkg::LPIF_GEN3};
+      bins gen4 = {lpif_agent_pkg::LPIF_GEN4};
+      bins gen5 = {lpif_agent_pkg::LPIF_GEN5};
+    }
+
+    //========== PIPE Operation Coverage ==========
+    cp_pipe_op : coverpoint pipe_seq_item_h.pipe_operation {
+      bins reset        = {pipe_agent_pkg::RESET};
+      bins link_up      = {pipe_agent_pkg::LINK_UP};
+      bins tlp_transfer = {pipe_agent_pkg::TLP_TRANSFER};
+      bins speed_change = {pipe_agent_pkg::SPEED_CHANGE};
+      bins send_ts      = {pipe_agent_pkg::SEND_TS};
+    }
+
+    //========== PIPE Generation Coverage ==========
+    cp_pipe_gen : coverpoint pipe_seq_item_h.gen {
+      bins gen1 = {pipe_agent_pkg::GEN1};
+      bins gen2 = {pipe_agent_pkg::GEN2};
+      bins gen3 = {pipe_agent_pkg::GEN3};
+      bins gen4 = {pipe_agent_pkg::GEN4};
+      bins gen5 = {pipe_agent_pkg::GEN5};
+    }
+
+  endgroup : pcie_env_cov
 
   // Standard UVM Methods:
   extern function new(string name = "pcie_coverage_monitor", uvm_component parent = null);
@@ -36,7 +68,7 @@ endclass: pcie_coverage_monitor
 
 function pcie_coverage_monitor::new(string name = "pcie_coverage_monitor", uvm_component parent = null);
   super.new(name, parent);
-  pcie_coverage_monitor_cov = new;
+  pcie_env_cov = new();
 endfunction
 
 function void pcie_coverage_monitor::build_phase(uvm_phase phase);
@@ -56,13 +88,18 @@ function void pcie_coverage_monitor::connect_phase(uvm_phase phase);
 endfunction:connect_phase
 
 function void pcie_coverage_monitor::report_phase(uvm_phase phase);
+  `uvm_info(get_name(), $sformatf("PCIe Environment Coverage: %.2f%%", 
+            pcie_env_cov.get_coverage()), UVM_LOW)
 endfunction:report_phase
 
-// NEW: Implement write_lpif_received to sample coverage
+// Sample coverage when LPIF transaction is received
 function void pcie_coverage_monitor::write_lpif_received(lpif_seq_item lpif_seq_item_h);
-  this.lpif_seq_item_h = lpif_seq_item_h;  // NEW: Save handle for covergroup
-  pcie_coverage_monitor_cov.sample();      // NEW: Sample coverage
+  this.lpif_seq_item_h = lpif_seq_item_h;
+  pcie_env_cov.sample();
 endfunction:write_lpif_received
 
+// Sample coverage when PIPE transaction is received
 function void pcie_coverage_monitor::write_pipe_received(pipe_seq_item pipe_seq_item_h);
+  this.pipe_seq_item_h = pipe_seq_item_h;
+  pcie_env_cov.sample();
 endfunction:write_pipe_received

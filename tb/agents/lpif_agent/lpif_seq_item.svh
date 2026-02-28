@@ -6,6 +6,7 @@ class lpif_seq_item extends uvm_sequence_item;
   rand lpif_operation_t lpif_operation;
   rand tlp_t tlp;
   rand dllp_t dllp;
+  rand lpif_speed_mode_t speed_mode;  // Current link speed (Gen1-Gen5)
 
   //  Group: Constraints
   constraint c1 {
@@ -43,6 +44,7 @@ function void lpif_seq_item::do_copy(uvm_object rhs);
   lpif_operation = rhs_.lpif_operation;
   tlp = rhs_.tlp;
   dllp = rhs_.dllp;
+  speed_mode = rhs_.speed_mode;
 
 endfunction:do_copy
 
@@ -70,14 +72,17 @@ function bit lpif_seq_item::do_compare(uvm_object rhs, uvm_comparer comparer);
     end
   end
 
-  return super.do_compare(rhs, comparer) && lpif_operation == rhs_.lpif_operation ; //??
+  return super.do_compare(rhs, comparer) && 
+         lpif_operation == rhs_.lpif_operation &&
+         speed_mode == rhs_.speed_mode;
 endfunction:do_compare
 
 function string lpif_seq_item::convert2string();
   string s;
 
   $sformat(s, "%s\n", super.convert2string());
-  // $sformat(s, "%s\n lpif_operation\t%0h\n tlp\t%0h\n dllp\t%0b\n delay\t%0d\n", s, lpif_operation, tlp, dllp); //?
+  $sformat(s, "%s lpif_operation=%s speed_mode=%s tlp_size=%0d\n", 
+           s, lpif_operation.name(), speed_mode.name(), tlp.size());
   return s;
 endfunction:convert2string
 
@@ -90,6 +95,7 @@ function lpif_seq_item_s lpif_seq_item::to_struct ();
   lpif_struct.tlp              = this.tlp;
   lpif_struct.dllp             = this.dllp;
   lpif_struct.lpif_operation   = this.lpif_operation;
+  lpif_struct.speed_mode       = this.speed_mode;
   return lpif_struct;
 endfunction: to_struct 
 
@@ -97,4 +103,5 @@ function void lpif_seq_item::from_struct (lpif_seq_item_s lpif_seq_item_struct);
   this.tlp                = lpif_seq_item_struct.tlp;
   this.dllp               = lpif_seq_item_struct.dllp;
   this.lpif_operation     = lpif_seq_item_struct.lpif_operation;
+  this.speed_mode         = lpif_seq_item_struct.speed_mode;
 endfunction: from_struct 
