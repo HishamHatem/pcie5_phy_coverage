@@ -17,6 +17,10 @@ class pcie_coverage_monitor extends uvm_component;
     cp_lpif_op : coverpoint lpif_seq_item_h.lpif_operation {
       bins link_reset = {lpif_agent_pkg::LINK_RESET}; //RESET
       bins link_up    = {lpif_agent_pkg::LINK_UP};  //Link-up
+      //Data transmit features (TX path)
+      bins tlp_transfer  = {lpif_agent_pkg::TLP_TRANSFER};
+      bins dllp_transfer = {lpif_agent_pkg::DLLP_TRANSFER};
+      bins send_data     = {lpif_agent_pkg::SEND_DATA};
     }
   endgroup : pcie_coverage_monitor_cov
 
