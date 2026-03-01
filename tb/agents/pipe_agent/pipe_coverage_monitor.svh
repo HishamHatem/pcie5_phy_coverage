@@ -140,11 +140,11 @@ class pipe_coverage_monitor extends uvm_component;
     //========== Feature 5: Data Transfer - TLP Size Coverage ==========
     cp_tlp_size : coverpoint pipe_seq_item_h.tlp.size() 
                   iff (pipe_seq_item_h.pipe_operation == TLP_TRANSFER) {
-      bins min_size = {[12:15]};
-      bins small    = {[16:63]};
-      bins medium   = {[64:127]};
-      bins large    = {[128:255]};
-      bins max_size = {[256:400]};
+      bins min_size  = {[12:15]};
+      bins is_small  = {[16:63]};
+      bins is_medium = {[64:127]};
+      bins is_large  = {[128:255]};
+      bins max_size  = {[256:400]};
     }
 
     //========== Cross Coverage ==========
@@ -155,7 +155,6 @@ class pipe_coverage_monitor extends uvm_component;
       bins speed_change_to_gen3 = binsof(cp_operation.speed_change) && binsof(cp_gen.gen3);
       bins speed_change_to_gen4 = binsof(cp_operation.speed_change) && binsof(cp_gen.gen4);
       bins speed_change_to_gen5 = binsof(cp_operation.speed_change) && binsof(cp_gen.gen5);
-      ignore_bins other = default;
     }
 
     // Equalization at high generations (Gen3+)
@@ -173,7 +172,11 @@ class pipe_coverage_monitor extends uvm_component;
       bins tlp_at_gen3 = binsof(cp_operation.tlp_transfer) && binsof(cp_gen.gen3);
       bins tlp_at_gen4 = binsof(cp_operation.tlp_transfer) && binsof(cp_gen.gen4);
       bins tlp_at_gen5 = binsof(cp_operation.tlp_transfer) && binsof(cp_gen.gen5);
-      ignore_bins other = default;
+      bins dllp_at_gen1 = binsof(cp_operation.dllp_transfer) && binsof(cp_gen.gen1);
+      bins dllp_at_gen2 = binsof(cp_operation.dllp_transfer) && binsof(cp_gen.gen2);
+      bins dllp_at_gen3 = binsof(cp_operation.dllp_transfer) && binsof(cp_gen.gen3);
+      bins dllp_at_gen4 = binsof(cp_operation.dllp_transfer) && binsof(cp_gen.gen4);
+      bins dllp_at_gen5 = binsof(cp_operation.dllp_transfer) && binsof(cp_gen.gen5);    
     }
 
     // Data transfer direction
@@ -182,7 +185,6 @@ class pipe_coverage_monitor extends uvm_component;
       bins tlp_rx  = binsof(cp_operation.tlp_transfer) && binsof(cp_direction.rx_path);
       bins dllp_tx = binsof(cp_operation.dllp_transfer) && binsof(cp_direction.tx_path);
       bins dllp_rx = binsof(cp_operation.dllp_transfer) && binsof(cp_direction.rx_path);
-      ignore_bins other = default;
     }
 
     // Data transfer at different widths
@@ -190,7 +192,9 @@ class pipe_coverage_monitor extends uvm_component;
       bins tlp_width_8  = binsof(cp_operation.tlp_transfer) && binsof(cp_width.width_8);
       bins tlp_width_16 = binsof(cp_operation.tlp_transfer) && binsof(cp_width.width_16);
       bins tlp_width_32 = binsof(cp_operation.tlp_transfer) && binsof(cp_width.width_32);
-      ignore_bins other = default;
+      bins dllp_width_8  = binsof(cp_operation.dllp_transfer) && binsof(cp_width.width_8);
+      bins dllp_width_16 = binsof(cp_operation.dllp_transfer) && binsof(cp_width.width_16);
+      bins dllp_width_32 = binsof(cp_operation.dllp_transfer) && binsof(cp_width.width_32);
     }
 
   endgroup : pipe_feature_cov

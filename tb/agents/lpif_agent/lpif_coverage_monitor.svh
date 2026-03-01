@@ -25,9 +25,10 @@ class lpif_coverage_monitor extends uvm_component;
       bins dllp_transfer = {DLLP_TRANSFER};  // Feature: Data Transfer
       //bins enter_retrain = {ENTER_RETRAIN};
       bins send_data     = {SEND_DATA};
+      bins reset_to_up_to_tlp = (LINK_RESET => LINK_UP => TLP_TRANSFER);
     }
     //state coverage
-    cp_state: coverpoint item.current_state {
+    cp_state : coverpoint lpif_seq_item_h.current_state {
       bins active    = {ACTIVE};
       bins reset     = {RESET};
       bins retrain   = {RETRAIN};
@@ -56,15 +57,10 @@ class lpif_coverage_monitor extends uvm_component;
                   iff (lpif_seq_item_h.lpif_operation == TLP_TRANSFER) {
       bins zero        = {0};          // Zero-length TLPs (if allowed by spec)
       bins min_size    = {[12:15]};   // Minimum TLP size
-      bins small       = {[16:63]};   // Small TLPs
-      bins medium      = {[64:127]};  // Medium TLPs
-      bins large       = {[128:255]}; // Large TLPs
+      bins is_small       = {[16:63]};   // Small TLPs
+      bins is_medium      = {[64:127]};  // Medium TLPs
+      bins is_large       = {[128:255]}; // Large TLPs
       // bins max_size    = {[256:400]}; // Maximum TLP size
-    }
-
-    //========== senario coverage ==========
-    cp_scenario : coverpoint senarios {
-      bins senario1 = (LINK_RESET => LINK_UP => TLP_TRANSFER);  
     }
 
     //========== Cross Coverage ==========
@@ -78,7 +74,6 @@ class lpif_coverage_monitor extends uvm_component;
       bins tlp_rx  = binsof(cp_operation.tlp_transfer) && binsof(cp_direction.rx_path);
       bins dllp_tx = binsof(cp_operation.dllp_transfer) && binsof(cp_direction.tx_path);
       bins dllp_rx = binsof(cp_operation.dllp_transfer) && binsof(cp_direction.rx_path);
-      ignore_bins other = default;
     }
 
     // TLP size at different speeds
@@ -88,7 +83,14 @@ class lpif_coverage_monitor extends uvm_component;
     cx_all : cross cp_operation, cp_speed_mode, cp_tlp_size;
 
     //cross speed with senario
-    cx_senario_speed : cross  senarios,cp_speed_mode;
+     cx_senario_speed : cross  cp_operation ,cp_speed_mode
+      {
+        bins reset_to_up_to_tlp_gen1 = binsof(cp_operation.reset_to_up_to_tlp) && binsof(cp_speed_mode.gen1);
+        bins reset_to_up_to_tlp_gen2 = binsof(cp_operation.reset_to_up_to_tlp) && binsof(cp_speed_mode.gen2);
+        bins reset_to_up_to_tlp_gen3 = binsof(cp_operation.reset_to_up_to_tlp) && binsof(cp_speed_mode.gen3);
+        bins reset_to_up_to_tlp_gen4 = binsof(cp_operation.reset_to_up_to_tlp) && binsof(cp_speed_mode.gen4);
+        bins reset_to_up_to_tlp_gen5 = binsof(cp_operation.reset_to_up_to_tlp) && binsof(cp_speed_mode.gen5);
+      }
 
   endgroup : lpif_feature_cov
 

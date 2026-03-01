@@ -39,6 +39,7 @@ typedef struct{
   tlp_t tlp;
   dllp_t dllp;
   lpif_speed_mode_t speed_mode;
+  lpif_state_t current_state;
 }lpif_seq_item_s;
 
 // Typedef of parameterized LPIF interfaces

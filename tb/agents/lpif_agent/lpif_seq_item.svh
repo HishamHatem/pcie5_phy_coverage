@@ -7,6 +7,7 @@ class lpif_seq_item extends uvm_sequence_item;
   rand tlp_t tlp;
   rand dllp_t dllp;
   rand lpif_speed_mode_t speed_mode;  // Current link speed (Gen1-Gen5)
+  rand lpif_state_t current_state;   // Current state of the link (Active, Reset, Retrain, etc.)
 
   //  Group: Constraints
   constraint c1 {
@@ -45,6 +46,7 @@ function void lpif_seq_item::do_copy(uvm_object rhs);
   tlp = rhs_.tlp;
   dllp = rhs_.dllp;
   speed_mode = rhs_.speed_mode;
+  current_state = rhs_.current_state;
 
 endfunction:do_copy
 
@@ -96,6 +98,7 @@ function lpif_seq_item_s lpif_seq_item::to_struct ();
   lpif_struct.dllp             = this.dllp;
   lpif_struct.lpif_operation   = this.lpif_operation;
   lpif_struct.speed_mode       = this.speed_mode;
+  lpif_struct.current_state    = this.current_state;
   return lpif_struct;
 endfunction: to_struct 
 
@@ -104,4 +107,5 @@ function void lpif_seq_item::from_struct (lpif_seq_item_s lpif_seq_item_struct);
   this.dllp               = lpif_seq_item_struct.dllp;
   this.lpif_operation     = lpif_seq_item_struct.lpif_operation;
   this.speed_mode         = lpif_seq_item_struct.speed_mode;
+  this.current_state      = lpif_seq_item_struct.current_state;
 endfunction: from_struct 

@@ -14,11 +14,13 @@ class pcie_coverage_monitor extends uvm_component;
   //=============================================================================================
   // Environment-Level Cross-Interface Coverage
   // Covers system-level scenarios spanning LPIF and PIPE interfaces
+  // Added 'iff' conditions to ensure simulation stability by checking for null handles
   //=============================================================================================
   covergroup pcie_env_cov;
     
     //========== LPIF Operation Coverage ==========
-    cp_lpif_op : coverpoint lpif_seq_item_h.lpif_operation {
+    // Check if LPIF sequence item is not null before sampling to prevent SIGSEGV
+    cp_lpif_op : coverpoint lpif_seq_item_h.lpif_operation iff (lpif_seq_item_h != null) {
       bins link_reset    = {lpif_agent_pkg::LINK_RESET};
       bins link_up       = {lpif_agent_pkg::LINK_UP};
       bins tlp_transfer  = {lpif_agent_pkg::TLP_TRANSFER};
@@ -28,7 +30,8 @@ class pcie_coverage_monitor extends uvm_component;
     }
 
     //========== LPIF Speed Mode Coverage ==========
-    cp_lpif_speed : coverpoint lpif_seq_item_h.speed_mode {
+    // Guarded by null check to ensure simulation stability
+    cp_lpif_speed : coverpoint lpif_seq_item_h.speed_mode iff (lpif_seq_item_h != null) {
       bins gen1 = {lpif_agent_pkg::LPIF_GEN1};
       bins gen2 = {lpif_agent_pkg::LPIF_GEN2};
       bins gen3 = {lpif_agent_pkg::LPIF_GEN3};
@@ -37,7 +40,8 @@ class pcie_coverage_monitor extends uvm_component;
     }
 
     //========== PIPE Operation Coverage ==========
-    cp_pipe_op : coverpoint pipe_seq_item_h.pipe_operation {
+    // Guarded by null check for PIPE sequence item
+    cp_pipe_op : coverpoint pipe_seq_item_h.pipe_operation iff (pipe_seq_item_h != null) {
       bins reset        = {pipe_agent_pkg::RESET};
       bins link_up      = {pipe_agent_pkg::LINK_UP};
       bins tlp_transfer = {pipe_agent_pkg::TLP_TRANSFER};
@@ -46,7 +50,8 @@ class pcie_coverage_monitor extends uvm_component;
     }
 
     //========== PIPE Generation Coverage ==========
-    cp_pipe_gen : coverpoint pipe_seq_item_h.gen {
+    // Guarded by null check for PIPE sequence item
+    cp_pipe_gen : coverpoint pipe_seq_item_h.gen iff (pipe_seq_item_h != null) {
       bins gen1 = {pipe_agent_pkg::GEN1};
       bins gen2 = {pipe_agent_pkg::GEN2};
       bins gen3 = {pipe_agent_pkg::GEN3};
