@@ -235,6 +235,7 @@ function pipe_coverage_monitor::new(string name = "pipe_coverage_monitor", uvm_c
 endfunction
 
 function void pipe_coverage_monitor::report_phase(uvm_phase phase);
-  `uvm_info(get_name(), $sformatf("PIPE Feature Coverage: %.2f%%", 
-            pipe_feature_cov.get_coverage()), UVM_LOW)
+  `uvm_info(get_name(), $sformatf("\n\n========== PIPE COVERAGE REPORT =========="), UVM_LOW)
+  `uvm_info(get_name(), $sformatf("Coverage: %.2f%%", pipe_feature_cov.get_coverage()), UVM_LOW)
+  `uvm_info(get_name(), $sformatf("===========================================\n"), UVM_LOW)
 endfunction: report_phase

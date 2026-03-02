@@ -93,9 +93,10 @@ function void pcie_coverage_monitor::connect_phase(uvm_phase phase);
 endfunction:connect_phase
 
 function void pcie_coverage_monitor::report_phase(uvm_phase phase);
-  `uvm_info(get_name(), $sformatf("PCIe Environment Coverage: %.2f%%", 
-            pcie_env_cov.get_coverage()), UVM_LOW)
-endfunction:report_phase
+  `uvm_info(get_name(), $sformatf("\n\n========== PCIE ENV COVERAGE REPORT =========="), UVM_LOW)
+  `uvm_info(get_name(), $sformatf("Coverage: %.2f%%", pcie_env_cov.get_coverage()), UVM_LOW)
+  `uvm_info(get_name(), $sformatf("===============================================\n"), UVM_LOW)
+endfunction: report_phase
 
 // Sample coverage when LPIF transaction is received
 function void pcie_coverage_monitor::write_lpif_received(lpif_seq_item lpif_seq_item_h);

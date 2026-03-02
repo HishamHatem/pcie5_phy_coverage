@@ -1,0 +1,1021 @@
+QuestaSim-64 vcover 2021.1 Coverage Utility 2021.01 Jan 19 2021
+Start time: 01:48:57 on Mar 02,2026
+vcover report -details coverage.ucdb 
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /hdl_top/PIPE_mon_bfm
+=== Design Unit: work.pipe_monitor_bfm
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      11        11         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/hdl_top/PIPE_mon_bfm/genblk1[7]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[6]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[5]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[4]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[3]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[2]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[1]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[0]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#358#4#/#ublk#33779117#358/immed__359
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(359)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#361#4#/#ublk#33779117#361/immed__363
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(363)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#369#4#/#ublk#33779117#369/immed__371
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(371)
+                                                        0          1
+
+=================================================================================
+=== Instance: /pipe_agent_pkg
+=== Design Unit: work.pipe_agent_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na     6.74%
+        Coverpoints/Crosses         19        na        na        na
+            Covergroup Bins        351        12       339     3.41%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /pipe_agent_pkg/pipe_coverage_monitor/pipe_feature_cov 
+                                                        6.74%        100          -    Uncovered            
+    covered/total bins:                                    12        351          -                      
+    missing/total bins:                                   339        351          -                      
+    % Hit:                                              3.41%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 3         18          -                      
+        missing/total bins:                                15         18          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin idle_data                                 1611196          1          -    Covered              
+        bin link_up                                         1          1          -    Covered              
+        bin enter_recovery                                  0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+        bin reset                                           1          1          -    Covered              
+        bin pclk_rate_change                                0          1          -    ZERO                 
+        bin width_change                                    0          1          -    ZERO                 
+        bin send_ts                                         0          1          -    ZERO                 
+        bin send_tses                                       0          1          -    ZERO                 
+        bin send_eios                                       0          1          -    ZERO                 
+        bin send_eieos                                      0          1          -    ZERO                 
+        bin set_gen                                         0          1          -    ZERO                 
+        bin send_data                                       0          1          -    ZERO                 
+        bin check_eq_preset                                 0          1          -    ZERO                 
+        bin set_eq_param                                    0          1          -    ZERO                 
+        bin assert_eval_fb                                  0          1          -    ZERO                 
+    Coverpoint cp_gen                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin gen1                                            0          1          -    ZERO                 
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_pclk_rate                            14.28%        100          -    Uncovered            
+        covered/total bins:                                 1          7          -                      
+        missing/total bins:                                 6          7          -                      
+        % Hit:                                         14.28%        100          -                      
+        bin pclk_62                                   1611198          1          -    Covered              
+        bin pclk_125                                        0          1          -    ZERO                 
+        bin pclk_250                                        0          1          -    ZERO                 
+        bin pclk_500                                        0          1          -    ZERO                 
+        bin pclk_1000                                       0          1          -    ZERO                 
+        bin pclk_2000                                       0          1          -    ZERO                 
+        bin pclk_4000                                       0          1          -    ZERO                 
+    Coverpoint cp_width                                33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+        bin width_8                                   1611198          1          -    Covered              
+        bin width_16                                        0          1          -    ZERO                 
+        bin width_32                                        0          1          -    ZERO                 
+    Coverpoint cp_ts_type                               0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin ts1                                             0          1          -    ZERO                 
+        bin ts2                                             0          1          -    ZERO                 
+    Coverpoint cp_speed_change_bit                      0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin no_speed_change                                 0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+    Coverpoint cp_rx_preset_hint                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          8          -                      
+        missing/total bins:                                 8          8          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin preset[0]                                       0          1          -    ZERO                 
+        bin preset[1]                                       0          1          -    ZERO                 
+        bin preset[2]                                       0          1          -    ZERO                 
+        bin preset[3]                                       0          1          -    ZERO                 
+        bin preset[4]                                       0          1          -    ZERO                 
+        bin preset[5]                                       0          1          -    ZERO                 
+        bin preset[6]                                       0          1          -    ZERO                 
+        bin preset[7]                                       0          1          -    ZERO                 
+    Coverpoint cp_tx_preset                             0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         11          -                      
+        missing/total bins:                                11         11          -                      
+        % Hit:                                          0.00%        100          -                      
+        illegal_bin reserved                                0                     -    ZERO                 
+        bin preset[0]                                       0          1          -    ZERO                 
+        bin preset[1]                                       0          1          -    ZERO                 
+        bin preset[2]                                       0          1          -    ZERO                 
+        bin preset[3]                                       0          1          -    ZERO                 
+        bin preset[4]                                       0          1          -    ZERO                 
+        bin preset[5]                                       0          1          -    ZERO                 
+        bin preset[6]                                       0          1          -    ZERO                 
+        bin preset[7]                                       0          1          -    ZERO                 
+        bin preset[8]                                       0          1          -    ZERO                 
+        bin preset[9]                                       0          1          -    ZERO                 
+        bin preset[10]                                      0          1          -    ZERO                 
+    Coverpoint cp_eq_command                            0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin ec_00                                           0          1          -    ZERO                 
+        bin ec_01                                           0          1          -    ZERO                 
+        bin ec_10                                           0          1          -    ZERO                 
+        bin ec_11                                           0          1          -    ZERO                 
+    Coverpoint cp_pre_cursor                            0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_cursor                                0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          3          -                      
+        missing/total bins:                                 3          3          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_post_cursor                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin tx_path                                         0          1          -    ZERO                 
+        bin rx_path                                   1611198          1          -    Covered              
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin min_size                                        0          1          -    ZERO                 
+        bin is_small                                        0          1          -    ZERO                 
+        bin is_medium                                       0          1          -    ZERO                 
+        bin is_large                                        0          1          -    ZERO                 
+        bin max_size                                        0          1          -    ZERO                 
+    Cross cx_speed_change_x_gen                         0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         90          -                      
+        missing/total bins:                                90         90          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin speed_change_to_gen2                        0          1          -    ZERO                 
+            bin speed_change_to_gen3                        0          1          -    ZERO                 
+            bin speed_change_to_gen4                        0          1          -    ZERO                 
+            bin speed_change_to_gen5                        0          1          -    ZERO                 
+            bin <*,*>                                       0          1         90    ZERO                 
+    Cross cx_eq_x_gen                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          3          -                      
+        missing/total bins:                                 3          3          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin eq_at_gen3                                  0          1          -    ZERO                 
+            bin eq_at_gen4                                  0          1          -    ZERO                 
+            bin eq_at_gen5                                  0          1          -    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin low_gen                              0                     -    ZERO                 
+    Cross cx_data_x_gen                                 0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         90          -                      
+        missing/total bins:                                90         90          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_at_gen1                                 0          1          -    ZERO                 
+            bin tlp_at_gen2                                 0          1          -    ZERO                 
+            bin tlp_at_gen3                                 0          1          -    ZERO                 
+            bin tlp_at_gen4                                 0          1          -    ZERO                 
+            bin tlp_at_gen5                                 0          1          -    ZERO                 
+            bin dllp_at_gen1                                0          1          -    ZERO                 
+            bin dllp_at_gen2                                0          1          -    ZERO                 
+            bin dllp_at_gen3                                0          1          -    ZERO                 
+            bin dllp_at_gen4                                0          1          -    ZERO                 
+            bin dllp_at_gen5                                0          1          -    ZERO                 
+            bin <*,*>                                       0          1         80    ZERO                 
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 3         36          -                      
+        missing/total bins:                                33         36          -                      
+        % Hit:                                          8.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_tx                                      0          1          -    ZERO                 
+            bin tlp_rx                                      0          1          -    ZERO                 
+            bin dllp_tx                                     0          1          -    ZERO                 
+            bin dllp_rx                                     0          1          -    ZERO                 
+            bin <reset,rx_path>                             1          1          -    Covered              
+            bin <link_up,rx_path>                           1          1          -    Covered              
+            bin <idle_data,rx_path>                   1611196          1          -    Covered              
+            bin <assert_eval_fb,*>                          0          1          2    ZERO                 
+            bin <set_eq_param,*>                            0          1          2    ZERO                 
+            bin <check_eq_preset,*>                         0          1          2    ZERO                 
+            bin <send_data,*>                               0          1          2    ZERO                 
+            bin <set_gen,*>                                 0          1          2    ZERO                 
+            bin <send_eieos,*>                              0          1          2    ZERO                 
+            bin <send_eios,*>                               0          1          2    ZERO                 
+            bin <send_tses,*>                               0          1          2    ZERO                 
+            bin <send_ts,*>                                 0          1          2    ZERO                 
+            bin <width_change,*>                            0          1          2    ZERO                 
+            bin <pclk_rate_change,*>                        0          1          2    ZERO                 
+            bin <speed_change,*>                            0          1          2    ZERO                 
+            bin <enter_recovery,*>                          0          1          2    ZERO                 
+            bin <*,tx_path>                                 0          1         16    ZERO                 
+    Cross cx_data_x_width                               5.55%        100          -    Uncovered            
+        covered/total bins:                                 3         54          -                      
+        missing/total bins:                                51         54          -                      
+        % Hit:                                          5.55%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_width_8                                 0          1          -    ZERO                 
+            bin tlp_width_16                                0          1          -    ZERO                 
+            bin tlp_width_32                                0          1          -    ZERO                 
+            bin dllp_width_8                                0          1          -    ZERO                 
+            bin dllp_width_16                               0          1          -    ZERO                 
+            bin dllp_width_32                               0          1          -    ZERO                 
+            bin <reset,width_8>                             1          1          -    Covered              
+            bin <link_up,width_8>                           1          1          -    Covered              
+            bin <idle_data,width_8>                   1611196          1          -    Covered              
+            bin <assert_eval_fb,*>                          0          1          3    ZERO                 
+            bin <set_eq_param,*>                            0          1          3    ZERO                 
+            bin <check_eq_preset,*>                         0          1          3    ZERO                 
+            bin <send_data,*>                               0          1          3    ZERO                 
+            bin <set_gen,*>                                 0          1          3    ZERO                 
+            bin <send_eieos,*>                              0          1          3    ZERO                 
+            bin <send_eios,*>                               0          1          3    ZERO                 
+            bin <send_tses,*>                               0          1          3    ZERO                 
+            bin <send_ts,*>                                 0          1          3    ZERO                 
+            bin <width_change,*>                            0          1          3    ZERO                 
+            bin <pclk_rate_change,*>                        0          1          3    ZERO                 
+            bin <speed_change,*>                            0          1          3    ZERO                 
+            bin <enter_recovery,*>                          0          1          3    ZERO                 
+            bin <*,width_32>                                0          1         16    ZERO                 
+            bin <*,width_16>                                0          1         16    ZERO                 
+
+=================================================================================
+=== Instance: /lpif_agent_pkg
+=== Design Unit: work.lpif_agent_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    11.83%
+        Coverpoints/Crosses         10        na        na        na
+            Covergroup Bins        271         7       264     2.58%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /lpif_agent_pkg/lpif_coverage_monitor/lpif_feature_cov 
+                                                       11.83%        100          -    Uncovered            
+    covered/total bins:                                     7        271          -                      
+    missing/total bins:                                   264        271          -                      
+    % Hit:                                              2.58%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+    Coverpoint cp_state                                16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+    Coverpoint cp_speed_mode                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_operation_x_speed                          3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 1         12          -                      
+        missing/total bins:                                11         12          -                      
+        % Hit:                                          8.33%        100          -                      
+    Cross cx_tlp_size_x_speed                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         25          -                      
+        missing/total bins:                                25         25          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_all                                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0        150          -                      
+        missing/total bins:                               150        150          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_senario_speed                              3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+ Covergroup instance \/lpif_agent_pkg::lpif_coverage_monitor::lpif_feature_cov  
+                                                       11.83%        100          -    Uncovered            
+    covered/total bins:                                     7        271          -                      
+    missing/total bins:                                   264        271          -                      
+    % Hit:                                              2.58%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin link_up                                         0          1          -    ZERO                 
+        bin link_reset                                      0          1          -    ZERO                 
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin send_data                                       1          1          -    Covered              
+        bin reset_to_up_to_tlp                              0          1          -    ZERO                 
+    Coverpoint cp_state                                16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin active                                          0          1          -    ZERO                 
+        bin reset                                           1          1          -    Covered              
+        bin retrain                                         0          1          -    ZERO                 
+        bin cold_boot                                       0          1          -    ZERO                 
+        bin recovery                                        0          1          -    ZERO                 
+        bin flap                                            0          1          -    ZERO                 
+    Coverpoint cp_speed_mode                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        bin gen1                                            1          1          -    Covered              
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin tx_path                                         0          1          -    ZERO                 
+        bin rx_path                                         1          1          -    Covered              
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin min_size                                        0          1          -    ZERO                 
+        bin is_small                                        0          1          -    ZERO                 
+        bin is_medium                                       0          1          -    ZERO                 
+        bin is_large                                        0          1          -    ZERO                 
+    Cross cx_operation_x_speed                          3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <send_data,gen1>                            1          1          -    Covered              
+            bin <reset_to_up_to_tlp,*>                      0          1          5    ZERO                 
+            bin <dllp_transfer,*>                           0          1          5    ZERO                 
+            bin <tlp_transfer,*>                            0          1          5    ZERO                 
+            bin <link_reset,*>                              0          1          5    ZERO                 
+            bin <link_up,*>                                 0          1          5    ZERO                 
+            bin <*,gen5>                                    0          1          6    ZERO                 
+            bin <*,gen4>                                    0          1          6    ZERO                 
+            bin <*,gen3>                                    0          1          6    ZERO                 
+            bin <*,gen2>                                    0          1          6    ZERO                 
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 1         12          -                      
+        missing/total bins:                                11         12          -                      
+        % Hit:                                          8.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_tx                                      0          1          -    ZERO                 
+            bin tlp_rx                                      0          1          -    ZERO                 
+            bin dllp_tx                                     0          1          -    ZERO                 
+            bin dllp_rx                                     0          1          -    ZERO                 
+            bin <send_data,rx_path>                         1          1          -    Covered              
+            bin <reset_to_up_to_tlp,*>                      0          1          2    ZERO                 
+            bin <link_reset,*>                              0          1          2    ZERO                 
+            bin <link_up,*>                                 0          1          2    ZERO                 
+            bin <*,tx_path>                                 0          1          4    ZERO                 
+    Cross cx_tlp_size_x_speed                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         25          -                      
+        missing/total bins:                                25         25          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <*,*>                                       0          1         25    ZERO                 
+    Cross cx_all                                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0        150          -                      
+        missing/total bins:                               150        150          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <*,*,*>                                     0          1        150    ZERO                 
+    Cross cx_senario_speed                              3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin reset_to_up_to_tlp_gen1                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen2                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen3                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen4                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen5                     0          1          -    ZERO                 
+            bin <send_data,gen1>                            1          1          -    Covered              
+            bin <dllp_transfer,*>                           0          1          5    ZERO                 
+            bin <tlp_transfer,*>                            0          1          5    ZERO                 
+            bin <link_reset,*>                              0          1          5    ZERO                 
+            bin <link_up,*>                                 0          1          5    ZERO                 
+            bin <*,gen5>                                    0          1          5    ZERO                 
+            bin <*,gen4>                                    0          1          5    ZERO                 
+            bin <*,gen3>                                    0          1          5    ZERO                 
+            bin <*,gen2>                                    0          1          5    ZERO                 
+
+=================================================================================
+=== Instance: /pcie_seq_pkg
+=== Design Unit: work.pcie_seq_pkg
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       2         2         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/pcie_seq_pkg/pipe_link_up_seq/config_linkwidth_accept_state_upstream/#anonblk#246455927#308#2#/#ublk#246455927#309/immed__311
+                     ../sequences/Pipe_link_up_seq.svh(311)
+                                                        0          1
+/pcie_seq_pkg/pipe_link_up_seq/config_linkwidth_accept_state_upstream/#anonblk#246455927#324#2#/#ublk#246455927#325/immed__326
+                     ../sequences/Pipe_link_up_seq.svh(326)
+                                                        0          1
+
+=================================================================================
+=== Instance: /pcie_env_pkg
+=== Design Unit: work.pcie_env_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    19.16%
+        Coverpoints/Crosses          4        na        na        na
+            Covergroup Bins         21         4        17    19.04%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /pcie_env_pkg/pcie_coverage_monitor/pcie_env_cov 
+                                                       19.16%        100          -    Uncovered            
+    covered/total bins:                                     4         21          -                      
+    missing/total bins:                                    17         21          -                      
+    % Hit:                                             19.04%        100          -                      
+    Coverpoint cp_lpif_op                              16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin link_reset                                      0          1          -    ZERO                 
+        bin link_up                                         0          1          -    ZERO                 
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin enter_retrain                                   0          1          -    ZERO                 
+        bin send_data                                 1611199          1          -    Covered              
+    Coverpoint cp_lpif_speed                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        bin gen1                                      1611199          1          -    Covered              
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_pipe_op                              40.00%        100          -    Uncovered            
+        covered/total bins:                                 2          5          -                      
+        missing/total bins:                                 3          5          -                      
+        % Hit:                                         40.00%        100          -                      
+        bin reset                                           1          1          -    Covered              
+        bin link_up                                         1          1          -    Covered              
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+        bin send_ts                                         0          1          -    ZERO                 
+    Coverpoint cp_pipe_gen                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin gen1                                            0          1          -    ZERO                 
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /pipe_agent_pkg/pipe_coverage_monitor/pipe_feature_cov 
+                                                        6.74%        100          -    Uncovered            
+    covered/total bins:                                    12        351          -                      
+    missing/total bins:                                   339        351          -                      
+    % Hit:                                              3.41%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 3         18          -                      
+        missing/total bins:                                15         18          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin idle_data                                 1611196          1          -    Covered              
+        bin link_up                                         1          1          -    Covered              
+        bin enter_recovery                                  0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+        bin reset                                           1          1          -    Covered              
+        bin pclk_rate_change                                0          1          -    ZERO                 
+        bin width_change                                    0          1          -    ZERO                 
+        bin send_ts                                         0          1          -    ZERO                 
+        bin send_tses                                       0          1          -    ZERO                 
+        bin send_eios                                       0          1          -    ZERO                 
+        bin send_eieos                                      0          1          -    ZERO                 
+        bin set_gen                                         0          1          -    ZERO                 
+        bin send_data                                       0          1          -    ZERO                 
+        bin check_eq_preset                                 0          1          -    ZERO                 
+        bin set_eq_param                                    0          1          -    ZERO                 
+        bin assert_eval_fb                                  0          1          -    ZERO                 
+    Coverpoint cp_gen                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin gen1                                            0          1          -    ZERO                 
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_pclk_rate                            14.28%        100          -    Uncovered            
+        covered/total bins:                                 1          7          -                      
+        missing/total bins:                                 6          7          -                      
+        % Hit:                                         14.28%        100          -                      
+        bin pclk_62                                   1611198          1          -    Covered              
+        bin pclk_125                                        0          1          -    ZERO                 
+        bin pclk_250                                        0          1          -    ZERO                 
+        bin pclk_500                                        0          1          -    ZERO                 
+        bin pclk_1000                                       0          1          -    ZERO                 
+        bin pclk_2000                                       0          1          -    ZERO                 
+        bin pclk_4000                                       0          1          -    ZERO                 
+    Coverpoint cp_width                                33.33%        100          -    Uncovered            
+        covered/total bins:                                 1          3          -                      
+        missing/total bins:                                 2          3          -                      
+        % Hit:                                         33.33%        100          -                      
+        bin width_8                                   1611198          1          -    Covered              
+        bin width_16                                        0          1          -    ZERO                 
+        bin width_32                                        0          1          -    ZERO                 
+    Coverpoint cp_ts_type                               0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin ts1                                             0          1          -    ZERO                 
+        bin ts2                                             0          1          -    ZERO                 
+    Coverpoint cp_speed_change_bit                      0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          2          -                      
+        missing/total bins:                                 2          2          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin no_speed_change                                 0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+    Coverpoint cp_rx_preset_hint                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          8          -                      
+        missing/total bins:                                 8          8          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin preset[0]                                       0          1          -    ZERO                 
+        bin preset[1]                                       0          1          -    ZERO                 
+        bin preset[2]                                       0          1          -    ZERO                 
+        bin preset[3]                                       0          1          -    ZERO                 
+        bin preset[4]                                       0          1          -    ZERO                 
+        bin preset[5]                                       0          1          -    ZERO                 
+        bin preset[6]                                       0          1          -    ZERO                 
+        bin preset[7]                                       0          1          -    ZERO                 
+    Coverpoint cp_tx_preset                             0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         11          -                      
+        missing/total bins:                                11         11          -                      
+        % Hit:                                          0.00%        100          -                      
+        illegal_bin reserved                                0                     -    ZERO                 
+        bin preset[0]                                       0          1          -    ZERO                 
+        bin preset[1]                                       0          1          -    ZERO                 
+        bin preset[2]                                       0          1          -    ZERO                 
+        bin preset[3]                                       0          1          -    ZERO                 
+        bin preset[4]                                       0          1          -    ZERO                 
+        bin preset[5]                                       0          1          -    ZERO                 
+        bin preset[6]                                       0          1          -    ZERO                 
+        bin preset[7]                                       0          1          -    ZERO                 
+        bin preset[8]                                       0          1          -    ZERO                 
+        bin preset[9]                                       0          1          -    ZERO                 
+        bin preset[10]                                      0          1          -    ZERO                 
+    Coverpoint cp_eq_command                            0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin ec_00                                           0          1          -    ZERO                 
+        bin ec_01                                           0          1          -    ZERO                 
+        bin ec_10                                           0          1          -    ZERO                 
+        bin ec_11                                           0          1          -    ZERO                 
+    Coverpoint cp_pre_cursor                            0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_cursor                                0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          3          -                      
+        missing/total bins:                                 3          3          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_post_cursor                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          4          -                      
+        missing/total bins:                                 4          4          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin low                                             0          1          -    ZERO                 
+        bin mid                                             0          1          -    ZERO                 
+        bin high                                            0          1          -    ZERO                 
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin tx_path                                         0          1          -    ZERO                 
+        bin rx_path                                   1611198          1          -    Covered              
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin min_size                                        0          1          -    ZERO                 
+        bin is_small                                        0          1          -    ZERO                 
+        bin is_medium                                       0          1          -    ZERO                 
+        bin is_large                                        0          1          -    ZERO                 
+        bin max_size                                        0          1          -    ZERO                 
+    Cross cx_speed_change_x_gen                         0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         90          -                      
+        missing/total bins:                                90         90          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin speed_change_to_gen2                        0          1          -    ZERO                 
+            bin speed_change_to_gen3                        0          1          -    ZERO                 
+            bin speed_change_to_gen4                        0          1          -    ZERO                 
+            bin speed_change_to_gen5                        0          1          -    ZERO                 
+            bin <*,*>                                       0          1         90    ZERO                 
+    Cross cx_eq_x_gen                                   0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          3          -                      
+        missing/total bins:                                 3          3          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin eq_at_gen3                                  0          1          -    ZERO                 
+            bin eq_at_gen4                                  0          1          -    ZERO                 
+            bin eq_at_gen5                                  0          1          -    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin low_gen                              0                     -    ZERO                 
+    Cross cx_data_x_gen                                 0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         90          -                      
+        missing/total bins:                                90         90          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_at_gen1                                 0          1          -    ZERO                 
+            bin tlp_at_gen2                                 0          1          -    ZERO                 
+            bin tlp_at_gen3                                 0          1          -    ZERO                 
+            bin tlp_at_gen4                                 0          1          -    ZERO                 
+            bin tlp_at_gen5                                 0          1          -    ZERO                 
+            bin dllp_at_gen1                                0          1          -    ZERO                 
+            bin dllp_at_gen2                                0          1          -    ZERO                 
+            bin dllp_at_gen3                                0          1          -    ZERO                 
+            bin dllp_at_gen4                                0          1          -    ZERO                 
+            bin dllp_at_gen5                                0          1          -    ZERO                 
+            bin <*,*>                                       0          1         80    ZERO                 
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 3         36          -                      
+        missing/total bins:                                33         36          -                      
+        % Hit:                                          8.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_tx                                      0          1          -    ZERO                 
+            bin tlp_rx                                      0          1          -    ZERO                 
+            bin dllp_tx                                     0          1          -    ZERO                 
+            bin dllp_rx                                     0          1          -    ZERO                 
+            bin <reset,rx_path>                             1          1          -    Covered              
+            bin <link_up,rx_path>                           1          1          -    Covered              
+            bin <idle_data,rx_path>                   1611196          1          -    Covered              
+            bin <assert_eval_fb,*>                          0          1          2    ZERO                 
+            bin <set_eq_param,*>                            0          1          2    ZERO                 
+            bin <check_eq_preset,*>                         0          1          2    ZERO                 
+            bin <send_data,*>                               0          1          2    ZERO                 
+            bin <set_gen,*>                                 0          1          2    ZERO                 
+            bin <send_eieos,*>                              0          1          2    ZERO                 
+            bin <send_eios,*>                               0          1          2    ZERO                 
+            bin <send_tses,*>                               0          1          2    ZERO                 
+            bin <send_ts,*>                                 0          1          2    ZERO                 
+            bin <width_change,*>                            0          1          2    ZERO                 
+            bin <pclk_rate_change,*>                        0          1          2    ZERO                 
+            bin <speed_change,*>                            0          1          2    ZERO                 
+            bin <enter_recovery,*>                          0          1          2    ZERO                 
+            bin <*,tx_path>                                 0          1         16    ZERO                 
+    Cross cx_data_x_width                               5.55%        100          -    Uncovered            
+        covered/total bins:                                 3         54          -                      
+        missing/total bins:                                51         54          -                      
+        % Hit:                                          5.55%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_width_8                                 0          1          -    ZERO                 
+            bin tlp_width_16                                0          1          -    ZERO                 
+            bin tlp_width_32                                0          1          -    ZERO                 
+            bin dllp_width_8                                0          1          -    ZERO                 
+            bin dllp_width_16                               0          1          -    ZERO                 
+            bin dllp_width_32                               0          1          -    ZERO                 
+            bin <reset,width_8>                             1          1          -    Covered              
+            bin <link_up,width_8>                           1          1          -    Covered              
+            bin <idle_data,width_8>                   1611196          1          -    Covered              
+            bin <assert_eval_fb,*>                          0          1          3    ZERO                 
+            bin <set_eq_param,*>                            0          1          3    ZERO                 
+            bin <check_eq_preset,*>                         0          1          3    ZERO                 
+            bin <send_data,*>                               0          1          3    ZERO                 
+            bin <set_gen,*>                                 0          1          3    ZERO                 
+            bin <send_eieos,*>                              0          1          3    ZERO                 
+            bin <send_eios,*>                               0          1          3    ZERO                 
+            bin <send_tses,*>                               0          1          3    ZERO                 
+            bin <send_ts,*>                                 0          1          3    ZERO                 
+            bin <width_change,*>                            0          1          3    ZERO                 
+            bin <pclk_rate_change,*>                        0          1          3    ZERO                 
+            bin <speed_change,*>                            0          1          3    ZERO                 
+            bin <enter_recovery,*>                          0          1          3    ZERO                 
+            bin <*,width_32>                                0          1         16    ZERO                 
+            bin <*,width_16>                                0          1         16    ZERO                 
+ TYPE /lpif_agent_pkg/lpif_coverage_monitor/lpif_feature_cov 
+                                                       11.83%        100          -    Uncovered            
+    covered/total bins:                                     7        271          -                      
+    missing/total bins:                                   264        271          -                      
+    % Hit:                                              2.58%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+    Coverpoint cp_state                                16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+    Coverpoint cp_speed_mode                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_operation_x_speed                          3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 1         12          -                      
+        missing/total bins:                                11         12          -                      
+        % Hit:                                          8.33%        100          -                      
+    Cross cx_tlp_size_x_speed                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         25          -                      
+        missing/total bins:                                25         25          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_all                                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0        150          -                      
+        missing/total bins:                               150        150          -                      
+        % Hit:                                          0.00%        100          -                      
+    Cross cx_senario_speed                              3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+ Covergroup instance \/lpif_agent_pkg::lpif_coverage_monitor::lpif_feature_cov  
+                                                       11.83%        100          -    Uncovered            
+    covered/total bins:                                     7        271          -                      
+    missing/total bins:                                   264        271          -                      
+    % Hit:                                              2.58%        100          -                      
+    Coverpoint cp_operation                            16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin link_up                                         0          1          -    ZERO                 
+        bin link_reset                                      0          1          -    ZERO                 
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin send_data                                       1          1          -    Covered              
+        bin reset_to_up_to_tlp                              0          1          -    ZERO                 
+    Coverpoint cp_state                                16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin active                                          0          1          -    ZERO                 
+        bin reset                                           1          1          -    Covered              
+        bin retrain                                         0          1          -    ZERO                 
+        bin cold_boot                                       0          1          -    ZERO                 
+        bin recovery                                        0          1          -    ZERO                 
+        bin flap                                            0          1          -    ZERO                 
+    Coverpoint cp_speed_mode                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        bin gen1                                            1          1          -    Covered              
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_direction                            50.00%        100          -    Uncovered            
+        covered/total bins:                                 1          2          -                      
+        missing/total bins:                                 1          2          -                      
+        % Hit:                                         50.00%        100          -                      
+        bin tx_path                                         0          1          -    ZERO                 
+        bin rx_path                                         1          1          -    Covered              
+    Coverpoint cp_tlp_size                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin zero                                            0          1          -    ZERO                 
+        bin min_size                                        0          1          -    ZERO                 
+        bin is_small                                        0          1          -    ZERO                 
+        bin is_medium                                       0          1          -    ZERO                 
+        bin is_large                                        0          1          -    ZERO                 
+    Cross cx_operation_x_speed                          3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <send_data,gen1>                            1          1          -    Covered              
+            bin <reset_to_up_to_tlp,*>                      0          1          5    ZERO                 
+            bin <dllp_transfer,*>                           0          1          5    ZERO                 
+            bin <tlp_transfer,*>                            0          1          5    ZERO                 
+            bin <link_reset,*>                              0          1          5    ZERO                 
+            bin <link_up,*>                                 0          1          5    ZERO                 
+            bin <*,gen5>                                    0          1          6    ZERO                 
+            bin <*,gen4>                                    0          1          6    ZERO                 
+            bin <*,gen3>                                    0          1          6    ZERO                 
+            bin <*,gen2>                                    0          1          6    ZERO                 
+    Cross cx_data_x_direction                           8.33%        100          -    Uncovered            
+        covered/total bins:                                 1         12          -                      
+        missing/total bins:                                11         12          -                      
+        % Hit:                                          8.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin tlp_tx                                      0          1          -    ZERO                 
+            bin tlp_rx                                      0          1          -    ZERO                 
+            bin dllp_tx                                     0          1          -    ZERO                 
+            bin dllp_rx                                     0          1          -    ZERO                 
+            bin <send_data,rx_path>                         1          1          -    Covered              
+            bin <reset_to_up_to_tlp,*>                      0          1          2    ZERO                 
+            bin <link_reset,*>                              0          1          2    ZERO                 
+            bin <link_up,*>                                 0          1          2    ZERO                 
+            bin <*,tx_path>                                 0          1          4    ZERO                 
+    Cross cx_tlp_size_x_speed                           0.00%        100          -    ZERO                 
+        covered/total bins:                                 0         25          -                      
+        missing/total bins:                                25         25          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <*,*>                                       0          1         25    ZERO                 
+    Cross cx_all                                        0.00%        100          -    ZERO                 
+        covered/total bins:                                 0        150          -                      
+        missing/total bins:                               150        150          -                      
+        % Hit:                                          0.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <*,*,*>                                     0          1        150    ZERO                 
+    Cross cx_senario_speed                              3.33%        100          -    Uncovered            
+        covered/total bins:                                 1         30          -                      
+        missing/total bins:                                29         30          -                      
+        % Hit:                                          3.33%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin reset_to_up_to_tlp_gen1                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen2                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen3                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen4                     0          1          -    ZERO                 
+            bin reset_to_up_to_tlp_gen5                     0          1          -    ZERO                 
+            bin <send_data,gen1>                            1          1          -    Covered              
+            bin <dllp_transfer,*>                           0          1          5    ZERO                 
+            bin <tlp_transfer,*>                            0          1          5    ZERO                 
+            bin <link_reset,*>                              0          1          5    ZERO                 
+            bin <link_up,*>                                 0          1          5    ZERO                 
+            bin <*,gen5>                                    0          1          5    ZERO                 
+            bin <*,gen4>                                    0          1          5    ZERO                 
+            bin <*,gen3>                                    0          1          5    ZERO                 
+            bin <*,gen2>                                    0          1          5    ZERO                 
+ TYPE /pcie_env_pkg/pcie_coverage_monitor/pcie_env_cov 
+                                                       19.16%        100          -    Uncovered            
+    covered/total bins:                                     4         21          -                      
+    missing/total bins:                                    17         21          -                      
+    % Hit:                                             19.04%        100          -                      
+    Coverpoint cp_lpif_op                              16.66%        100          -    Uncovered            
+        covered/total bins:                                 1          6          -                      
+        missing/total bins:                                 5          6          -                      
+        % Hit:                                         16.66%        100          -                      
+        bin link_reset                                      0          1          -    ZERO                 
+        bin link_up                                         0          1          -    ZERO                 
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin dllp_transfer                                   0          1          -    ZERO                 
+        bin enter_retrain                                   0          1          -    ZERO                 
+        bin send_data                                 1611199          1          -    Covered              
+    Coverpoint cp_lpif_speed                           20.00%        100          -    Uncovered            
+        covered/total bins:                                 1          5          -                      
+        missing/total bins:                                 4          5          -                      
+        % Hit:                                         20.00%        100          -                      
+        bin gen1                                      1611199          1          -    Covered              
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+    Coverpoint cp_pipe_op                              40.00%        100          -    Uncovered            
+        covered/total bins:                                 2          5          -                      
+        missing/total bins:                                 3          5          -                      
+        % Hit:                                         40.00%        100          -                      
+        bin reset                                           1          1          -    Covered              
+        bin link_up                                         1          1          -    Covered              
+        bin tlp_transfer                                    0          1          -    ZERO                 
+        bin speed_change                                    0          1          -    ZERO                 
+        bin send_ts                                         0          1          -    ZERO                 
+    Coverpoint cp_pipe_gen                              0.00%        100          -    ZERO                 
+        covered/total bins:                                 0          5          -                      
+        missing/total bins:                                 5          5          -                      
+        % Hit:                                          0.00%        100          -                      
+        bin gen1                                            0          1          -    ZERO                 
+        bin gen2                                            0          1          -    ZERO                 
+        bin gen3                                            0          1          -    ZERO                 
+        bin gen4                                            0          1          -    ZERO                 
+        bin gen5                                            0          1          -    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 12.58%  COVERGROUP TYPES: 3
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/hdl_top/PIPE_mon_bfm/genblk1[7]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[6]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[5]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[4]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[3]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[2]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[1]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/genblk1[0]/assert__reset_assertion
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(93)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#358#4#/#ublk#33779117#358/immed__359
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(359)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#361#4#/#ublk#33779117#361/immed__363
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(363)
+                                                        0          1
+/hdl_top/PIPE_mon_bfm/#anonblk#33779117#369#4#/#ublk#33779117#369/immed__371
+                     ../agents/pipe_agent/pipe_monitor_bfm.sv(371)
+                                                        0          1
+/pcie_seq_pkg/pipe_link_up_seq/config_linkwidth_accept_state_upstream/#anonblk#246455927#308#2#/#ublk#246455927#309/immed__311
+                     ../sequences/Pipe_link_up_seq.svh(311)
+                                                        0          1
+/pcie_seq_pkg/pipe_link_up_seq/config_linkwidth_accept_state_upstream/#anonblk#246455927#324#2#/#ublk#246455927#325/immed__326
+                     ../sequences/Pipe_link_up_seq.svh(326)
+                                                        0          1
+
+Total Coverage By Instance (filtered view): 56.29%
+
+End time: 01:48:57 on Mar 02,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

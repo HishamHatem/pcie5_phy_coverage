@@ -124,8 +124,9 @@ class lpif_coverage_monitor extends uvm_component;
   endfunction
 
   function void report_phase(uvm_phase phase);
-    `uvm_info(get_name(), $sformatf("LPIF Feature Coverage: %.2f%%", 
-              lpif_feature_cov.get_coverage()), UVM_LOW)
+    `uvm_info(get_name(), $sformatf("\n\n========== LPIF COVERAGE REPORT =========="), UVM_LOW)
+    `uvm_info(get_name(), $sformatf("Coverage: %.2f%%", lpif_feature_cov.get_coverage()), UVM_LOW)
+    `uvm_info(get_name(), $sformatf("===========================================\n"), UVM_LOW)
   endfunction: report_phase
 
 endclass
