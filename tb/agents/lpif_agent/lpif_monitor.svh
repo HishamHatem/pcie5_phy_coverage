@@ -1,29 +1,33 @@
-`define NOTIFY_LPIF_OP_SENT(func_name, lpif_op) \
+`define NOTIFY_LPIF_OP_SENT(func_name, lpif_op, lpif_state) \
     function void notify_``func_name``_sent();\
       lpif_seq_item lpif_seq_item_h  = lpif_seq_item::type_id::create("lpif_seq_item_h");\
       lpif_seq_item_h.lpif_operation = ``lpif_op``;\
+      lpif_seq_item_h.current_state = ``lpif_state``;\
       ap_sent.write(lpif_seq_item_h);\
     endfunction
 
-`define NOTIFY_LPIF_OP_RECIEVED(func_name, lpif_op) \
+`define NOTIFY_LPIF_OP_RECIEVED(func_name, lpif_op, lpif_state) \
     function void notify_``func_name``_received();\
       lpif_seq_item lpif_seq_item_h  = lpif_seq_item::type_id::create("lpif_seq_item_h");\
       lpif_seq_item_h.lpif_operation = ``lpif_op``;\
+      lpif_seq_item_h.current_state = ``lpif_state``;\
       ap_received.write(lpif_seq_item_h);\
     endfunction
 
-`define NOTIFY_LPIF_OP_SENT_EXTENDED(func_name, lpif_op, lpif_data_field_type, lpif_data_field) \
+`define NOTIFY_LPIF_OP_SENT_EXTENDED(func_name, lpif_op, lpif_state, lpif_data_field_type, lpif_data_field) \
     function void notify_``func_name``_sent(``lpif_data_field_type`` ``lpif_data_field``);\
       lpif_seq_item lpif_seq_item_h  = lpif_seq_item::type_id::create("lpif_seq_item_h");\
       lpif_seq_item_h.lpif_operation = ``lpif_op``;\
+      lpif_seq_item_h.current_state = ``lpif_state``;\
       lpif_seq_item_h.``lpif_data_field`` = ``lpif_data_field``;\
       ap_sent.write(lpif_seq_item_h);\
     endfunction
 
-`define NOTIFY_LPIF_OP_RECIEVED_EXTENDED(func_name, lpif_op, lpif_data_field_type, lpif_data_field) \
+`define NOTIFY_LPIF_OP_RECIEVED_EXTENDED(func_name, lpif_op, lpif_state, lpif_data_field_type, lpif_data_field) \
     function void notify_``func_name``_received(``lpif_data_field_type`` ``lpif_data_field``);\
       lpif_seq_item lpif_seq_item_h  = lpif_seq_item::type_id::create("lpif_seq_item_h");\
       lpif_seq_item_h.lpif_operation = ``lpif_op``;\
+      lpif_seq_item_h.current_state = ``lpif_state``;\
       lpif_seq_item_h.``lpif_data_field`` = ``lpif_data_field``;\
       ap_received.write(lpif_seq_item_h);\
     endfunction
@@ -44,21 +48,21 @@ class lpif_monitor extends uvm_monitor;
   //------------------------------------------
   //  Notification Methods
   //------------------------------------------
-  `NOTIFY_LPIF_OP_SENT(link_up, LINK_UP)
-  `NOTIFY_LPIF_OP_SENT(reset, LINK_RESET)
-  // `NOTIFY_LPIF_OP_SENT(retrain, ENTER_RECOVERY)
+  `NOTIFY_LPIF_OP_SENT(link_up, LINK_UP, ACTIVE)
+  `NOTIFY_LPIF_OP_SENT(reset, LINK_RESET, RESET)
+  // `NOTIFY_LPIF_OP_SENT(retrain, ENTER_RECOVERY, RETRAIN)
 
-  `NOTIFY_LPIF_OP_RECIEVED(link_up, LINK_UP)
-  `NOTIFY_LPIF_OP_RECIEVED(reset, LINK_RESET)
-  // `NOTIFY_LPIF_OP_RECIEVED(retrain, ENTER_RECOVERY)
+  `NOTIFY_LPIF_OP_RECIEVED(link_up, LINK_UP, ACTIVE)
+  `NOTIFY_LPIF_OP_RECIEVED(reset, LINK_RESET, RESET)
+  // `NOTIFY_LPIF_OP_RECIEVED(retrain, ENTER_RECOVERY, RETRAIN)
 
-  `NOTIFY_LPIF_OP_SENT_EXTENDED(dllp, DLLP_TRANSFER, dllp_t, dllp)
-  `NOTIFY_LPIF_OP_SENT_EXTENDED(tlp, TLP_TRANSFER, tlp_t, tlp)
-  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(dllp, DLLP_TRANSFER, dllp_t, dllp)
-  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(tlp, TLP_TRANSFER, tlp_t, tlp)
+  `NOTIFY_LPIF_OP_SENT_EXTENDED(dllp, DLLP_TRANSFER, ACTIVE, dllp_t, dllp)
+  `NOTIFY_LPIF_OP_SENT_EXTENDED(tlp, TLP_TRANSFER, ACTIVE, tlp_t, tlp)
+  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(dllp, DLLP_TRANSFER, ACTIVE, dllp_t, dllp)
+  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(tlp, TLP_TRANSFER, ACTIVE, tlp_t, tlp)
   
   // Speed mode change notification
-  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(speed_change, SEND_DATA, lpif_speed_mode_t, speed_mode)
+  `NOTIFY_LPIF_OP_RECIEVED_EXTENDED(speed_change, SEND_DATA, ACTIVE, lpif_speed_mode_t, speed_mode)
   
   //------------------------------------------
   //  Standard UVM Methods

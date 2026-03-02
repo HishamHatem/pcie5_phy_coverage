@@ -53,7 +53,7 @@ build: COMMON_BUILD UTILITY_BUILD build_agents ENV_BUILD SEQ_BUILD TEST_BUILD TO
 #################################### Run Without Coverage #####################################
 run:
 ifdef SEQ
-    vsim -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
+	vsim -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
 else 
 	vsim -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${DEF_SEQ} -suppress 8887
 endif
@@ -64,7 +64,7 @@ run_design:
 # Run with coverage (GUI mode)
 run_cov:
 ifdef SEQ
-    vsim $(VSIM_COV_OPTS) -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
+	vsim $(VSIM_COV_OPTS) -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
 else
 	vsim $(VSIM_COV_OPTS) -gui -do "wave.do" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${DEF_SEQ} -suppress 8887
 endif
@@ -72,7 +72,7 @@ endif
 # Run with coverage (batch mode - no GUI)
 run_cov_batch:
 ifdef SEQ
-    vsim $(VSIM_COV_OPTS) -c -do "run -all; coverage save -onexit coverage.ucdb; quit" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
+	vsim $(VSIM_COV_OPTS) -c -do "run -all; coverage save -onexit coverage.ucdb; quit" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${SEQ} -suppress 8887
 else
 	vsim $(VSIM_COV_OPTS) -c -do "run -all; coverage save -onexit coverage.ucdb; quit" hvl_top hdl_top +UVM_NO_RELNOTES +UVM_TESTNAME="$(TEST)" +VSEQ=${DEF_SEQ} -suppress 8887
 endif
